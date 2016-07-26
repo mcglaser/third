@@ -1,0 +1,12 @@
+<%= @user.email %><br><br>
+<%= @user.first_name %><br><br>
+<%= @user.last_name %><br><br>
+<%= @user.address_line_one %><br><br>
+<%= @user.address_line_two %><br><br>
+
+
+
+
+<%= link_to "Edit Your Profile", edit_user_path(current_user) %><br>
+<li><%= link_to "All Users", users_path %></li><br>
+<%= link_to "Log out", logout_path, method: :delete %>

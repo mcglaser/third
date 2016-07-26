@@ -1,0 +1,31 @@
+<h1>All users</h1>
+<ul>
+<% @users.each do |user| %>
+<li>
+<%= link_to user.email, user %>
+<%= user.first_name %><br><br>
+<% if current_user.admin? && !current_user?(user) %>
+| <%= link_to "| delete", user, method: :delete, data: { confirm: "Are You sure?" } %>
+<% end %>
+</li>
+<% end %>
+</ul>
+
+
+
+
+<p>There are <%= User.count %> registered users.</p><br><br>
+
+<p>There are <%= User.where(first_name: 'Frank').count %> users named Frank.</p>
+
+
+<p>The Users with the name Frank are:</p>
+
+<ul>
+<% User.where(first_name: 'Frank').each do |user| %>
+<li>
+<%= link_to user.email, user %>
+<%= user.first_name %><br><br>
+</li>
+<% end %>
+</ul>
